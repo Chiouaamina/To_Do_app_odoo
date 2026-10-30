@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_todo_task,todo.task,model_todo_task,,1,1,1,1
+access_employe,model_todo_app_employe,model_todo_app_employe,,1,1,1,1
+access_projet,model_todo_app_projet,model_todo_app_projet,,1,1,1,1

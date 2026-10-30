@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <!-- Tree View for "employe.list" -->
+<record id="view_employe_list" model="ir.ui.view">
+    <field name="name">employe.list</field>
+    <field name="model">todo_app.employe</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name" class="form-control"/>
+            <field name="num_tele" class="form-control"/>
+            <field name="depart" class="form-control"/>
+            <field name="date_entre" class="form-control"/>
+            <field name="email" class="form-control"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Form View for "employe.form" -->
+<record id="view_employe_form" model="ir.ui.view">
+    <field name="name">employe.form</field>
+    <field name="model">todo_app.employe</field>
+    <field name="arch" type="xml">
+        <form string="Employé">
+            <sheet>
+                <group>
+                    <field name="name" class="form-control"/>
+                    <field name="num_tele" class="form-control"/>
+                    <field name="depart" class="form-control"/>
+                    <field name="date_entre" class="form-control"/>
+                    <field name="email" class="form-control"/>
+                    <!-- <field name="projet_id" widget="many2many_tags" class="form-control"/> -->
+                </group>
+                <!-- Added section for displaying tasks -->
+                <notebook>
+                    <page string="Tasks">
+                        <field name="task_ids" context="{'default_employe_id': active_id}" widget="one2many_list">
+                            <tree editable="bottom">
+                                <field name="name" class="form-control"/>
+                                <field name="description" class="form-control"/>
+                                <field name="dead_line" class="form-control"/>
+                                <field name="priority" class="form-control"/>
+                                <field name="is_done" class="form-control"/>
+                                <field name="active" class="form-control"/>
+                                <field name="projet_id" class="form-control"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+        <!-- Action for Employe -->
+        <record id="action_employe" model="ir.actions.act_window">
+            <field name="name">Employés</field>
+            <field name="res_model">todo_app.employe</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_employe_list"/>
+        </record>
+
+        <!-- Menu Item for Employe -->
+        <menuitem id="menu_employe_main" name="Employés"/>
+        <menuitem id="menu_employe" name="Gestion des Employés" parent="menu_employe_main" action="action_employe"/>
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+/* Base colors */
+
+:root {
+    --primary-color: #5c6bc0;
+    /* Example primary color */
+    --secondary-color: #ffca28;
+    /* Example secondary color */
+    --text-color: #2c3e50;
+    --background-color: #ecf0f1;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+}
+
+
+/* Button styling */
+
+.button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+
+/* additional styles here */

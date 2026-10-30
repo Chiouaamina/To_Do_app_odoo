@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <!-- Form view for todo.task -->
+        <record id="view_todo_task_form" model="ir.ui.view">
+            <field name="name">todo.task.form</field>
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <form string="To-Do Task">
+                    <sheet>
+                        <group>
+                            <field name="name" class="input-field form-control"/>
+                            <field name="description" class="input-field form-control"/>
+                            <field name="dead_line" class="input-field form-control"/>
+                            <field name="priority" class="input-field form-control"/>
+                            <field name="is_done" class="input-field"/>
+                            <field name="active" class="input-field"/>
+                            <field name="employe_id" class="input-field"/>
+                            <field name="projet_id" class="input-field"/>
+                            <!-- <field name="user_id" class="input-field"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view for todo.task -->
+        <record id="view_todo_task_tree" model="ir.ui.view">
+            <field name="name">todo.task.tree</field>
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <tree string="To-Do Tasks" decoration-muted="is_done">
+                    <field name="name" class="form-control"/>
+                    <field name="description" class="form-control"/>
+                    <field name="dead_line" class="form-control"/>
+                    <field name="priority" class="form-control"/>
+                    <field name="is_done" class="form-check-input"/>
+                    <field name="active" class="form-check-input"/>
+                    <field name="employe_id" class="form-control"/>
+                    <field name="projet_id" class="form-control"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Action to open the views -->
+        <record id="action_todo_task" model="ir.actions.act_window">
+            <field name="name">To-Do Tasks</field>
+            <field name="res_model">todo.task</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu item -->
+       <!-- Parent Menu Item -->
+        <menuitem id="menu_todo_main" name="Gestion des tâches"/>
+        
+        <!-- Submenu for Tasks -->
+        <menuitem id="menu_todo_task" name="Les Tâches" parent="menu_todo_main" action="action_todo_task"/>
+        
+        <!-- Submenu for Employees -->
+        <menuitem id="menu_todo_employe" name="Employés" parent="menu_todo_main" action="action_employe"/>
+        
+        <!-- Submenu for Projects -->
+        <menuitem id="menu_todo_projet" name="Projets" parent="menu_todo_main" action="action_projet"/>
+    </data>
+</odoo>

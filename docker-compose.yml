@@ -1,0 +1,25 @@
+version: '2'
+services:
+  mydb:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: odoo
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo
+    depends_on:
+      - mydb
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./odoo.conf:/etc/odoo/odoo.conf
+      - ./custom-addons:/mnt/custom-addons
+      - odoo-data:/var/lib/odoo
+
+volumes:
+  odoo-db-data:
+  odoo-data:

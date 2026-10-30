@@ -1,0 +1,23 @@
+{
+    'name': 'To-Do List',
+    'version': '1.0',
+    'summary': 'Gestion des tâches',
+    'sequence': 10,
+    'description': 'Manage your personal To-Do tasks',
+    'category': 'Tools',
+    'author': 'Saadia Wakrim',
+    'website': 'https://www.isga.ma/marrakech/',
+    'depends': ['base', 'web'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/todo_view.xml',
+        'views/employe_view.xml',
+        'views/projet_view.xml',
+        # 'views/todo_task_user.xml',
+    ],
+    'demo': [],
+    'images': ['static/description/'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}
